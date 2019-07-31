@@ -82,7 +82,7 @@ variable "vm_1_number_of_vcpu" {
 }
 
 variable "vm_1_memory" {
-  description = "Memory assigned to the virtual machine in megabytes. This value is required to be an increment of 1024"
+  description = "12JeyChange Memory assigned to the virtual machine in megabytes. This value is required to be an increment of 1024"
   default     = "1024"
 }
 
