@@ -166,9 +166,12 @@ resource "vsphere_virtual_machine" "vm_1" {
   datastore_id     = "${data.vsphere_datastore.vm_1_datastore.id}"
   guest_id         = "${data.vsphere_virtual_machine.vm_1_template.guest_id}"
   scsi_type        = "${data.vsphere_virtual_machine.vm_1_template.scsi_type}"
+  wait_for_guest_ip_timeout = "30000"
+  wait_for_guest_net_timeout = "30000"
 
   clone {
     template_uuid = "${data.vsphere_virtual_machine.vm_1_template.id}"
+    timeout = "30000"
 
     customize {
       linux_options {
@@ -184,6 +187,7 @@ resource "vsphere_virtual_machine" "vm_1" {
       ipv4_gateway    = "${var.vm_1_ipv4_gateway}"
       dns_suffix_list = "${var.vm_1_dns_suffixes}"
       dns_server_list = "${var.vm_1_dns_servers}"
+      timeout = "30000"
     }
   }
 
